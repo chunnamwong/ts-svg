@@ -1,0 +1,46 @@
+{
+	"name": "@ts-svg/core",
+	"version": "0.0.1-beta.0",
+	"description": "Vite Plugin for loading all svg files inside a folder with types.",
+	"keywords": [
+		"vite-plugin",
+		"vite",
+		"svg",
+		"typescript"
+	],
+	"author": {
+		"name": "Chun Nam Wong",
+		"url": "https://chunnamwong.com"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/chunnamwong/ts-svg.git",
+		"directory": "packages/core"
+	},
+	"type": "module",
+	"main": "src/index.js",
+	"types": [
+		"src/index.d.ts",
+		"src/cli.d.ts"
+	],
+	"exports": {
+		".": "./src/index.js",
+		"./cli": "./src/cli.js"
+	},
+	"bin": {
+		"ts-svg": "src/cli.js"
+	},
+	"files": [
+		"src"
+	],
+	"scripts": {
+		"format": "prettier . --write"
+	},
+	"peerDependencies": {
+		"vite": ">=3.2.0"
+	},
+	"devDependencies": {
+		"@types/node": "catalog:"
+	}
+}

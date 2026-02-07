@@ -1,0 +1,41 @@
+{
+	"name": "@ts-svg/svelte",
+	"version": "0.0.1-beta.0",
+	"description": "Vite Plugin for loading all svg files inside a folder with types.",
+	"keywords": [
+		"vite-plugin",
+		"vite",
+		"svg",
+		"typescript",
+		"svelte"
+	],
+	"author": {
+		"name": "Chun Nam Wong",
+		"url": "https://chunnamwong.com"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/chunnamwong/ts-svg.git",
+		"directory": "packages/svelte"
+	},
+	"type": "module",
+	"main": "src/index.js",
+	"types": "src/index.d.ts",
+	"bin": {
+		"ts-svg": "src/cli.js"
+	},
+	"files": [
+		"src"
+	],
+	"peerDependencies": {
+		"svelte": ">=4.0.0"
+	},
+	"dependencies": {
+		"@ts-svg/core": "workspace:^",
+		"svgo": "^4.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "catalog:"
+	}
+}

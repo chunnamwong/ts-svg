@@ -1,0 +1,23 @@
+{
+	"name": "ts-svg",
+	"type": "module",
+	"private": true,
+	"packageManager": "pnpm@10.28.2",
+	"scripts": {
+		"format": "prettier --write . \"!examples\"",
+		"format:check": "prettier --check . \"!examples\"",
+		"lint": "eslint . --ignore-pattern \"examples/**/*\" --max-warnings=0",
+		"lint:fix": "eslint . --ignore-pattern \"examples/**/*\" --fix"
+	},
+	"engine": {
+		"node": ">=20.1.0"
+	},
+	"workspaces": [
+		"packages/*"
+	],
+	"devDependencies": {
+		"eslint": "^10.0.0",
+		"prettier": "^3.8.1",
+		"prettier-plugin-svelte": "^3.4.1"
+	}
+}

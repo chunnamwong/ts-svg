@@ -1,0 +1,9 @@
+packages:
+  - examples/*
+  - packages/*
+
+catalog:
+  '@types/node': ^24.6.0
+
+onlyBuiltDependencies:
+  - esbuild
