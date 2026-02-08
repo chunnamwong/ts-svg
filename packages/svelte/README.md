@@ -2,6 +2,8 @@
 
 Type-safe SVG bundling for Vite. `ts-svg` scans a directory (including subdirectories), generates **typed virtual modules**, and lets you import SVGs as framework components with great DX (autocomplete + type checking) and proper bundling/tree-shaking.
 
+https://github.com/user-attachments/assets/d2e4c4a4-4afb-47ec-be09-76954b756a80
+
 ## Why ts-svg?
 
 - **Type-safe imports**: virtual modules are generated with types, so importing from `virtual:ts-svg/...` is typed.
