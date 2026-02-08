@@ -37,7 +37,7 @@ export function tsSvg(options) {
 		/**
 		 * Configure the dev server to listen to svg file changes and sync the types.
 		 */
-		configureServer({ watcher, environments }) {
+		configureServer(server) {
 			/**
 			 * Sync the types once when starting the dev server.
 			 */
@@ -46,20 +46,37 @@ export function tsSvg(options) {
 			/**
 			 * Sync the types and virtual module whenever svg file changes are detected.
 			 */
-			watcher.on('all', (_, file) => {
+			server.watcher.on('all', (_, file) => {
 				if (file.startsWith(svgFolderFullPath) && /\.svg$/.test(file)) {
 					syncTypes(svgFolderFullPath, handledQuery, options.svgModuleDeclaration);
 
 					/**
 					 * Reload the virtual module to include new changes
 					 */
-					for (const environment of Object.values(environments)) {
-						const moduleId = path.dirname(
-							path.join(resolvedVirtualModuleId, path.relative(svgFolderFullPath, file)),
-						);
-						const module = environment.moduleGraph.getModuleById(moduleId);
+					const moduleId = path.dirname(
+						path.join(resolvedVirtualModuleId, path.relative(svgFolderFullPath, file)),
+					);
+
+					if (server.environments) {
+						/**
+						 * Use the Environment API that is available since Vite 6
+						 * to invalidate both client and ssr module.
+						 */
+						for (const environment of Object.values(server.environments)) {
+							const module = environment.moduleGraph.getModuleById(moduleId);
+							if (module) {
+								environment.reloadModule(module);
+							}
+						}
+					} else {
+						/**
+						 * For Vite versions that do not support Environment API,
+						 * fallback to only invalidate client module.
+						 * FIXME: Find a way to invalidate the ssr module for those Vite versions
+						 */
+						const module = server.moduleGraph.getModuleById(moduleId);
 						if (module) {
-							environment.reloadModule(module);
+							server.reloadModule(module);
 						}
 					}
 				}
