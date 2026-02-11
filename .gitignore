@@ -29,5 +29,3 @@ dist-ssr
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
-/examples/svelte/src/lib/assets/icons/test-home-copy.svg
-/examples/svelte/src/routes/test-hot-reload-*
