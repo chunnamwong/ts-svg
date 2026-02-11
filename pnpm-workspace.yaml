@@ -2,11 +2,11 @@ packages:
   - examples/*
   - packages/*
 
-overrides:
-  '@ts-svg/svelte': 'workspace:*'
-
 catalog:
-  '@types/node': ^24.6.0
+  '@types/node': ^24.10.11
 
 onlyBuiltDependencies:
   - esbuild
+
+overrides:
+  '@ts-svg/svelte': workspace:*
