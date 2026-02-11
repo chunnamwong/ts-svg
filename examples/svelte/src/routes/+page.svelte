@@ -1,9 +1,22 @@
 <script lang="ts">
-	import * as Icon from 'virtual:ts-svg/icons';
+	import * as Icon from '$lib/Icon';
+	import * as Image from '$lib/Image';
+
+	const newIcon = `<Icon.NewIcon />`;
 </script>
 
-<Icon.Book class="size-200" />
-<Icon.Home />
+<h1>@ts-svg/svelte</h1>
+
+<p>
+	Try adding a new icon to <code>src/lib/svg/icons</code>, then use it right away:
+	<code>{newIcon}</code>
+</p>
+
+<div>
+	<Image.Favicon />
+	<Icon.Home />
+	<Icon.Book class="size-200" />
+</div>
 
 <style>
 	:global(.size-200) {
@@ -14,5 +27,9 @@
 	:global(svg) {
 		width: 150px;
 		height: 150px;
+	}
+
+	p {
+		font-size: 1rem;
 	}
 </style>
