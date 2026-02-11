@@ -2,6 +2,9 @@ packages:
   - examples/*
   - packages/*
 
+overrides:
+  '@ts-svg/svelte': 'workspace:*'
+
 catalog:
   '@types/node': ^24.6.0
 
