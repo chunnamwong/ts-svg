@@ -7,7 +7,7 @@ export default defineConfig({
 		sveltekit(),
 		// Step 1: Add the vite plugin
 		tsSvg({
-			path: './src/lib/svgs',
+			path: './src/lib/assets',
 		}),
 	],
 });
