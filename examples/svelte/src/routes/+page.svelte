@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as Icon from '$lib/Icon';
-	import * as Image from '$lib/Image';
+	import { Icon } from '$lib/Icon';
+	import { Image } from '$lib/Image';
 
 	const newIcon = `<Icon.NewIcon />`;
 </script>
@@ -12,11 +12,11 @@
 	<code>{newIcon}</code>
 </p>
 
-<div>
+<article>
 	<Image.Favicon />
 	<Icon.Home />
 	<Icon.Book class="size-200" />
-</div>
+</article>
 
 <style>
 	:global(.size-200) {
@@ -31,5 +31,11 @@
 
 	p {
 		font-size: 1rem;
+	}
+
+	article {
+		display: flex;
+		align-items: center;
+		gap: 8px;
 	}
 </style>

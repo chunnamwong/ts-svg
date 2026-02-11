@@ -7,7 +7,8 @@
 		"format": "prettier --write . \"!examples\"",
 		"format:check": "prettier --check . \"!examples\"",
 		"lint": "eslint . --ignore-pattern \"examples/**/*\" --max-warnings=0",
-		"lint:fix": "eslint . --ignore-pattern \"examples/**/*\" --fix"
+		"lint:fix": "eslint . --ignore-pattern \"examples/**/*\" --fix",
+		"test": "pnpm exec playwright test"
 	},
 	"engine": {
 		"node": ">=20.1.0"
@@ -16,6 +17,8 @@
 		"packages/*"
 	],
 	"devDependencies": {
+		"@playwright/test": "^1.58.2",
+		"@types/node": "catalog:",
 		"eslint": "^10.0.0",
 		"prettier": "^3.8.1",
 		"prettier-plugin-svelte": "^3.4.1"

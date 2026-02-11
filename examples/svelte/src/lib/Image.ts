@@ -1,1 +1,1 @@
-export * from 'virtual:ts-svg';
+export * as Image from 'virtual:ts-svg';
