@@ -8,7 +8,7 @@
 <h1>@ts-svg/svelte</h1>
 
 <p>
-	Try adding a new icon to <code>src/lib/svg/icons</code>, then use it right away:
+	Try adding a new icon to <code>src/lib/assets/icons</code>, then use it right away:
 	<code>{newIcon}</code>
 </p>
 
