@@ -8,6 +8,19 @@ test.describe('dev server', () => {
 		// Only compare the icons so that the test can run aross platform
 		await expect(page.getByRole('article')).toHaveScreenshot();
 	});
+
+	test('generates the type for icons', async () => {
+		const type = await fs.readFile(
+			path.join(process.cwd(), 'examples/svelte/.ts-svg/ambient.d.ts'),
+			'utf-8',
+		);
+		expect(type).toContain(`
+declare module "virtual:ts-svg/icons" {
+  export const Book: typeof import('*.svg?svelte').default;
+	export const Home: typeof import('*.svg?svelte').default;
+}
+`);
+	});
 });
 
 test.describe('dev server with new files', () => {
@@ -60,6 +73,19 @@ test.describe('dev server with new files', () => {
 		// Refresh to ensure SSR works with hot reload
 		await page.reload();
 		await expect(page).toHaveScreenshot();
+
+		// Ensure it regenerate the type correctly
+		const type = await fs.readFile(
+			path.join(process.cwd(), 'examples/svelte/.ts-svg/ambient.d.ts'),
+			'utf-8',
+		);
+		expect(type).toContain(`
+declare module "virtual:ts-svg/icons" {
+  export const Book: typeof import('*.svg?svelte').default;
+	export const Home: typeof import('*.svg?svelte').default;
+	export const TestHomeCopy: typeof import('*.svg?svelte').default;
+}
+`);
 	});
 });
 
